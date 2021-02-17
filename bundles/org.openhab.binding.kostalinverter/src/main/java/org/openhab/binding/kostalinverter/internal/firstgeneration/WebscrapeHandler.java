@@ -122,10 +122,10 @@ public class WebscrapeHandler extends BaseThingHandler {
         if (unit == null) {
             return new StringType(value);
         } else {
-            try {
-                if (value == 'x x x')  {
-                    value = 0
-                }     
+            if (value == 'x x x')  {
+               value = 0
+            } 
+            try {    
                 return new QuantityType<>(new BigDecimal(value), unit);
             } catch (NumberFormatException e) {
                 logger.debug("Error parsing value '{}'", value, e);
